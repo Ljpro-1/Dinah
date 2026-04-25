@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>Accueil</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #0f172a;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #38bdf8;
+    }
+
+    /* Slider */
+.slider {
+  width: 100%;
+  height: 60vh;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+    .slides {
+      display: flex;
+      width: 500%;
+      transition: transform 1s ease;
+    }
+
+.slides img {
+  width: 40%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+/* Effet au clic */
+button:active {
+  transform: scale(0.95);
+}
+
+/* Effet hover */
+button:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+.card {
+  background: linear-gradient(145deg, #020617, #0f172a);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.card h2 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #cbd5f5;
+  line-height: 1.6;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 30px;
+  color: #22c55e;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, #22c55e, #38bdf8);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+}
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card i {
+  margin-right: 10px;
+  color: #22c55e;
+  font-size: 20px;
+}
+.card p {
+  transition: 0.3s;
+}
+
+.card:hover p {
+  color: #e2e8f0;
+}
+/* Couleurs spécifiques par card */
+.card:nth-child(1) i { color: #22c55e; } /* Automation */
+.card:nth-child(2) i { color: #38bdf8; } /* Communication */
+.card:nth-child(3) i { color: #a78bfa; } /* Courses */
+.card:nth-child(4) i { color: #f59e0b; } /* Booking */
+.card:nth-child(5) i { color: #ef4444; } /* Sales */
+.card:nth-child(6) i { color: #06b6d4; } /* Data */
+.card:nth-child(7) i { color: #eab308; } /* Brand */
+.card:nth-child(8) i { color: #10b981; } /* 24/7 */
+.card:nth-child(9) i { color: #ec4899; } /* Marketing */
+.card i {
+  transition: 0.3s;
+}
+
+.card:hover i {
+  transform: scale(1.2);
+  text-shadow: 0 0 15px currentColor;
+}
+.section-title {
+  background: linear-gradient(90deg, #22c55e, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.topbar {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.topbar button {
+  background: linear-gradient(135deg, #38bdf8, #22c55e);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transition: 0.3s;
+}
+
+.topbar button:hover {
+  transform: scale(1.05);
+}
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/* RESPONSIVE GLOBAL */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* CONTENEUR PRINCIPAL */
+.container {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* GRID DES BLOCS */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+/* SUR TABLETTE / PC */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* CARDS */
+.card {
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* IMAGE PRINCIPALE */
+.hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+/* SECTION IMAGE + TEXTE */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* SUR GRAND ECRAN */
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* BOUTONS */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* SUPPRIMER ESPACE VIDE */
+.section {
+  margin-bottom: 30px;
+}
+h1, h2 {
+  text-align: center;
+}
+
+p {
+  line-height: 1.6;
+}
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+  <button onclick="showAbout()">About</button>
+</div>
+<div id="page1">
+  <h1> the usefulness of a webside</h1>
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slides" id="slides">
+<img src="image1.jpg">
+<img src="image2.jpg">
+<img src="image3.jpg">
+<img src="image4.jpg">
+<img src="image5.jpg">
+    </div>
+  </div>
+
+  <!-- Bouton -->
+<div class="buttons">
+  <button onclick="precedent()">⬅</button>
+  <button onclick="enter()">Enter</button>
+  <button onclick="suivant()">➡</button>
+</div>
+<script>
+
+  let index = 0;
+  const slides = document.getElementById("slides");
+  const total = 5;
+
+  function afficherSlide() {
+    slides.style.transform = "translateX(-" + index * 20 + "%)";
+  }
+
+  function suivant() {
+    index++;
+    if (index >= total) index = 0;
+    afficherSlide();
+  }
+
+  function precedent() {
+    index--;
+    if (index < 0) index = total - 1;
+    afficherSlide();
+  }
+
+  function enter() {
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("page2").style.display = "block";
+}
+function back() {
+  document.getElementById("page2").style.display = "none";
+  document.getElementById("page1").style.display = "block";
+}
+function showAbout() {
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("page2").style.display = "none";
+  document.getElementById("page3").style.display = "block";
+}
+
+function backFromAbout() {
+  document.getElementById("page3").style.display = "none";
+  document.getElementById("page1").style.display = "block";
+}
+</script>
+</div>
+<div id="page2" style="display:none;">
+  
+  <h1 class="section-title">Why a Website is Powerful</h1>
+
+<div class="container">
+
+<!-- A -->
+<div class="card">
+<h2><i class="fa-solid fa-robot"></i> Task Automation</h2>
+<p>
+  Task automation allows your website to perform repetitive operations without human intervention,
+  such as form processing, email responses, order handling, and data management.
+</p>
+<p>
+  By automating workflows, businesses reduce errors, save time, and operate more efficiently.
+  This enables a system to run <strong>24/7 continuously</strong> without interruptions.
+</p>
+<p>
+  It is a key factor in scaling operations while minimizing operational costs.
+</p>
+</div>
+
+<!-- B -->
+<div class="card">
+  <h2><i class="fa-solid fa-globe"></i> Communication & Visibility</h2>
+  <p>
+  A website serves as a global communication platform that connects you with users worldwide.
+  It allows instant access to your services, brand, or information at any time.
+</p>
+<p>
+  Through search engines, social media, and digital marketing, your visibility increases
+  significantly, helping you reach a much larger audience.
+</p>
+<p>
+  This strengthens your online presence and builds long-term recognition and trust.
+</p>
+</div>
+
+<!-- C -->
+<div class="card">
+  <h2><i class="fa-solid fa-graduation-cap"></i> Online Courses</h2>
+  <p>
+  Websites enable the creation of digital learning platforms where users can access structured
+  educational content, including videos, documents, and interactive quizzes.
+</p>
+<p>
+  Learners can study at their own pace, from anywhere in the world, without physical limitations.
+</p>
+<p>
+  This model also allows creators to generate <strong>passive income</strong> by selling courses online.
+</p>
+
+</div>
+
+<!-- D -->
+<div class="card">
+ <h2><i class="fa-solid fa-calendar-check"></i> Appointment Booking</h2>
+<p>
+  A website can integrate automated booking systems that allow users to schedule services
+  without manual interaction.
+</p>
+<p>
+  This reduces scheduling conflicts, avoids missed appointments, and improves organization.
+</p>
+<p>
+  Customers benefit from a smoother experience while businesses gain better time management
+  and efficiency.
+</p>
+</div>
+
+<!-- E -->
+<div class="card">
+  <h2><i class="fa-solid fa-cart-shopping"></i> Sales & E-commerce</h2>
+  <p>
+    A website allows you to sell products or services online, reaching customers globally.
+  </p>
+  <p>
+    Secure payment systems and automation make transactions fast and reliable.
+  </p>
+</div>
+
+<!-- EXTRA PRO CONTENT -->
+<div class="card">
+  <h2><i class="fa-solid fa-chart-line"></i> Data Collection & Analytics</h2>
+  <p>
+    Websites collect valuable user data that helps businesses understand customer behavior,
+    preferences, and trends.
+  </p>
+</div>
+
+<div class="card">
+<h2><i class="fa-solid fa-award"></i> Brand Authority</h2>
+  <p>
+    A professional website builds trust and credibility. It shows that your business is serious,
+    reliable, and modern.
+  </p>
+</div>
+
+<div class="card">
+<h2><i class="fa-solid fa-clock"></i> 24/7 Availability</h2>
+  <p>
+    Unlike physical stores, websites are always accessible. Customers can interact with your
+    services anytime, anywhere.
+  </p>
+</div>
+
+<div class="card">
+  <h2><i class="fa-solid fa-bullhorn"></i> Marketing Power</h2>
+  <p>
+    Websites integrate with ads, social media, and email campaigns to create powerful marketing strategies.
+  </p>
+</div>
+
+</div>
+<button onclick="back()">Back</button>
+</div>
+<div id="page3" style="display:none;">
+
+<h1 class="section-title">About Me</h1>
+
+<div class="container">
+
+<div class="card">
+  <h2>👤 ANDRIANJANAHARY Fankalazana Dinah</h2>
+  <p>
+    This website has been created to showcase my skills in full-stack programming,
+    including front-end and back-end development.
+  </p>
+  <p>
+    I design and develop modern, responsive, and efficient web applications,
+    focusing on user experience, performance, and scalability.
+  </p>
+  <p>
+    My objective is to build digital solutions that solve real-world problems
+    while maintaining a high level of design and functionality.
+  </p>
+</div>
+
+<div class="card">
+  <h2>💡 My Mission</h2>
+  <p>
+    I aim to create innovative web platforms that combine design, technology,
+    and usability to deliver powerful user experiences.
+  </p>
+  <p>
+    Full-stack development allows me to control the entire system,
+    from interface design to database management.
+  </p>
+</div>
+
+<div class="card">
+  <h2>📞 Contact</h2>
+  <p>Email: <a href="mailto:lazadiah@gmail.com">lazadiah@gmail.com</a></p>
+  <p>WhatsApp 1: <a href="https://wa.me/261330608880" target="_blank">+261330608880</a></p>
+  <p>WhatsApp 2: <a href="https://wa.me/261343306189" target="_blank">+261343306189</a></p>
+</div>
+
+</div>
+
+<br><br>
+<button onclick="backFromAbout()">⬅ Back</button>
+
+</div>
+</body>
+
+</html>
